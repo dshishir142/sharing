@@ -31,8 +31,8 @@ import Distributersignout from "./components/distributersignout";
 import Dashboardd from "./components/Dashboard"
 
 
-import {initialState, reducer} from "../src/reducer/UseReducer"
-import {adminInitialState, adminreducer} from "../src/reducer/UseReducerAdmin"
+import {initialState, reducer} from "./reducer/UseReducer"
+import {adminInitialState, adminreducer} from "./reducer/UseReducerAdmin"
 
 
 
