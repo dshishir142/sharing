@@ -32,7 +32,7 @@ app.use("/uploads",express.static('uploads'));
 
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 
 //for rent request

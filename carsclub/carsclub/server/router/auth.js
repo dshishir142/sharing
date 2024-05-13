@@ -61,6 +61,8 @@ router.use(require('../clientSideModules/updatedbafetrrentedcar'))
 // Admin Side Modules---for--- SignIn, SignOut
 router.use(require('../adminSideModules/signinadmin'))
 router.use(require('../adminSideModules/signoutadmin'))
+router.use(require('../adminSideModules/signupadmin'));
+
 router.use(require('../adminSideModules/getadmindata'))
 
 // Admin Side Modules---for--- Sale Cars

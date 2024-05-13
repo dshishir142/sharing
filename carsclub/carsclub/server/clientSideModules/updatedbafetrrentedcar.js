@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authenticate = require("../middelware/authenticate");
-
-
+const RentRequest = require('../models/rentRequest');
 
 const User = require('../models/userSchema');
 const Rentcar = require('../models/rentcarSchema');
@@ -12,9 +11,10 @@ const Rentcarincomes = require('../models/rentCarIncomeSchema');
 
 module.exports = router.post('/updateRentDataBase', authenticate, async(req, res)=>{
     const getRentedCars = req.body.items;
-    let rentedCarPrice, rentedCarId, rentedCarHours, rentedCarBrand, rentedCarModel;
+    let rentApproveId, rentedCarPrice, rentedCarId, rentedCarHours, rentedCarBrand, rentedCarModel;
     
     getRentedCars.map(getRentedCars=>{
+        rentApproveId = getRentedCars._id;
         rentedCarPrice = getRentedCars.totalbill;
         rentedCarId = getRentedCars.rentcarid;
         rentedCarHours = getRentedCars.requiredhours;
@@ -31,7 +31,9 @@ module.exports = router.post('/updateRentDataBase', authenticate, async(req, res
     const rentCarBuyedPrice = findCar.price;
 
     try {
-        
+        const rentApproved = await RentRequest.findByIdAndUpdate(rentApproveId, {
+            status: "approved"
+        } )
         const newincome = new Rentcarincomes({
             userById : findUser,
             soldItems: [{
@@ -46,9 +48,10 @@ module.exports = router.post('/updateRentDataBase', authenticate, async(req, res
 
         await newincome.save();
 
-        
         await Rentcart.deleteOne({"_id": cartId});
-        
+        res.send({
+            status: "Ok"
+        })
     }
     catch(error) {
         res.status(500).send(error.message);
