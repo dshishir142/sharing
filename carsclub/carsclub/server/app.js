@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
+const rentrequest = require('./rentRequestRoutes');
+
 
 dotenv.config({ path: './config.env' });
 
@@ -33,7 +35,8 @@ app.use("/uploads",express.static('uploads'));
 const PORT = process.env.PORT;
 
 
-
+//for rent request
+app.use('/api/rentrequest', rentrequest);
 
 // app.get('/', (req, res) =>{
 //     res.send(`Home page`);
