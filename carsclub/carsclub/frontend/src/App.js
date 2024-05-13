@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
@@ -25,10 +25,6 @@ import Rentcarreviews from "./components/Rentcarreviews";
 import Signout from "./components/Signout";
 import ExploreSaleCar from "./components/ExploreSaleCar";
 import ExploreRentCar from "./components/ExploreRentCar";
-import DistributerSignin from "./components/DistributorSignin";
-import DistributerSignup from "./components/distributerSignup";
-import Distributersignout from "./components/distributersignout";
-import DashboardDistributer from "./components/dashboarddistributer"
 
 
 import {initialState, reducer} from "../src/reducer/UseReducer"
@@ -39,18 +35,15 @@ import {adminInitialState, adminreducer} from "../src/reducer/UseReducerAdmin"
 
 export const UserContext = createContext();
 export const AdminContext = createContext();
-export const DistributorContext = createContext();
 
 const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
   const [adminState, dispatchadmin] = useReducer(adminreducer, adminInitialState)
-  const [distributerState, dispatchdistributer] = useReducer(adminreducer, adminInitialState)
 
   
   return (
-    <>
-
+    <Switch>
       <UserContext.Provider value={{state, dispatch}}>
       <Route exact path="/"> <Home/> </Route>
       <Route path="/signin"> <Signin/> </Route>
@@ -67,33 +60,9 @@ const App = () => {
       <Route path="/exploreRentCars"> <ExploreRentCar/> </Route>
       </UserContext.Provider>
 
-
-
-      <DistributorContext.Provider value={{distributerState, dispatchdistributer}}>
-       {/* <Route exact path="/"> <Home/> </Route>  */}
-       
-      <Route path="/distributerdashboard"> <DashboardDistributer/> </Route>
-      <Route path="/distributersignup"> <DistributerSignup/> </Route>
-      <Route path="/distributersignin"> <DistributerSignin/> </Route>
-      <Route path="/distributersignout"> <Distributersignout/> </Route>
-      <Route path="/buycar"> <Buycar/> </Route>
-      <Route path="/mycart"> <Mycart/> </Route>
-      <Route path="/carreviews"> <Carreviews/> </Route>
-      <Route path="/rentcar"> <Rentacar/> </Route>
-      <Route path="/rentcarcart"> <Rentcarcart/> </Route>
-      <Route path="/rentcarreviews"> <Rentcarreviews/> </Route>
-      <Route path="/saleyourcar"> <Saleyourcars/> </Route>
-      <Route path="/exploreSaleCars"> <ExploreSaleCar/> </Route>
-      <Route path="/exploreRentCars"> <ExploreRentCar/> </Route>   
-
-      </DistributorContext.Provider>
-
-
-
       <AdminContext.Provider value={{adminState, dispatchadmin}}>
       <Route path="/adminsignin"> <AdminSignin/> </Route>
       <Route path="/adminsignup"> <AdminSignup/> </Route>
-
 
       <Route path="/adminsignout"> <AdminSignout/> </Route>
       <Route path="/dashboard"> <Dashboard/> </Route>
@@ -106,7 +75,7 @@ const App = () => {
       <Route path="/getrentcarsforadmin"> <Getrentcars/> </Route>
       </AdminContext.Provider>
       
-    </>
+    </Switch>
   );
 
 

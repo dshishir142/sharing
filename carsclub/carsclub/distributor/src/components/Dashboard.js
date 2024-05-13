@@ -13,9 +13,10 @@ const Dashboard = () => {
 
   const callDashboard =  async () =>{
       try {
+
           const res = await fetch('/dashboard', {
             method: "GET",
-            headers: {
+           headers: {
               Accept : "application/json",
               "Content-Type" : "application/json"
             },
@@ -32,13 +33,13 @@ const Dashboard = () => {
       } catch (error) {
         console.log(error)
         history.push("/signin");
-      }
+      } 
   }
 
 
-  useEffect(() => {
-    callDashboard();
-  }, [])
+  // useEffect(() => {
+  //   callDashboard();
+  // }, [])
 
 
 
@@ -94,6 +95,12 @@ const Loginbutton= () =>{
             <span className="allLinks_name">Available RentCars</span>
             </NavLink>
         </li>
+        <li>
+            <NavLink className="dashlinks" to="/rentRequest">
+              <i className='bx bx-box' ></i>
+              <span className="allLinks_name">Rent Cars Requests</span>
+            </NavLink>
+          </li>
         <li>
             <NavLink className="dashlinks" to="/salecarsreports">
             <i className='bx bx-box' ></i>

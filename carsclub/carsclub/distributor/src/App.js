@@ -17,6 +17,7 @@ import Availableusers from "./components/dashboardComponents/Availableusers";
 import Usermessages from "./components/dashboardComponents/Usermessages";
 import Getsalecars from "./components/dashboardComponents/Getsalecars";
 import Getrentcars from "./components/dashboardComponents/Getrentcars";
+import Getrentrequestcars from "./components/dashboardComponents/Getrentcarrequests";
 import Mycart from "./components/Mycart";
 import Rentacar from "./components/Rentacar";
 import Rentcarcart from "./components/Rentcarcart";
@@ -31,8 +32,8 @@ import Distributersignout from "./components/distributersignout";
 import Dashboardd from "./components/Dashboard"
 
 
-import {initialState, reducer} from "./reducer/UseReducer"
-import {adminInitialState, adminreducer} from "./reducer/UseReducerAdmin"
+import {initialState, reducer} from "../src/reducer/UseReducer"
+import {adminInitialState, adminreducer} from "../src/reducer/UseReducerAdmin"
 
 
 
@@ -85,6 +86,7 @@ const App = () => {
       <Route path="/saleyourcar"> <Saleyourcars/> </Route>
       <Route path="/exploreSaleCars"> <ExploreSaleCar/> </Route>
       <Route path="/exploreRentCars"> <ExploreRentCar/> </Route>   
+      {/* <Route path="/rentRequest"> <Getrentrequestcars/> </Route>    */}
 
       </DistributorContext.Provider>
 
@@ -104,6 +106,7 @@ const App = () => {
       <Route path="/usermessages"> <Usermessages/> </Route>
       <Route path="/getsalecarsforadmin"> <Getsalecars/> </Route>
       <Route path="/getrentcarsforadmin"> <Getrentcars/> </Route>
+      <Route path="/rentRequest"> <Getrentrequestcars/> </Route>   
       </AdminContext.Provider>
       
     </>

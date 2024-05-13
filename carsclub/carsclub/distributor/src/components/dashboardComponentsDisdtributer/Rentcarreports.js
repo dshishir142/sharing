@@ -91,6 +91,12 @@ const Rentcarreports = () => {
             </NavLink>
         </li>
         <li>
+            <NavLink className="dashlinks" to="/rentRequest">
+              <i className='bx bx-box' ></i>
+              <span className="allLinks_name">Rent Cars Requests</span>
+            </NavLink>
+          </li>
+        <li>
             <NavLink className="dashlinks" to="/salecarsreports">
             <i className='bx bx-box' ></i>
             <span className="allLinks_name">Sale Cars Income</span>

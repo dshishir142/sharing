@@ -67,7 +67,7 @@ let carIdFromDashBoard;
   <div className="sidebar">
     <div className="logo-details">
       <i className='bx bxl-c-plus-plus'></i>
-      <span className="logo_name">Cars Club</span>
+      <span className="logo_name">VROOM</span>
     </div>
       <ul className="nav-links">
         {/* <li className="active"> */}
@@ -95,6 +95,12 @@ let carIdFromDashBoard;
             <span className="allLinks_name">Available RentCars</span>
             </NavLink>
         </li>
+        <li>
+            <NavLink className="dashlinks" to="/rentRequest">
+              <i className='bx bx-box' ></i>
+              <span className="allLinks_name">Rent Cars Requests</span>
+            </NavLink>
+          </li>
         <li>
             <NavLink className="dashlinks" to="/salecarsreports">
             <i className='bx bx-box' ></i>
