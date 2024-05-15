@@ -16,7 +16,8 @@ const distributorAuthentication = async (req, res, next) => {
         req.rootDistributor = distributor;
         next();
     } catch (error) {
-        res.status(401).json({ error: 'Authentication failed' });
+        console.log(error)
+        res.status(401).json({ error: 'Authentication failed' , err : error});
     }
 };
 

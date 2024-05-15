@@ -7,6 +7,7 @@ const User = require('../models/userSchema');
 const Rentcar = require('../models/rentcarSchema');
 const Rentcart = require('../models/rentcartSchema');
 const Rentcarincomes = require('../models/rentCarIncomeSchema');
+const distributorAuthentication = require("../middelware/distributorAuthentication");
 
 
 module.exports = router.post('/updateRentDataBase', authenticate, async(req, res)=>{

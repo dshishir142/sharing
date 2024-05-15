@@ -44,7 +44,7 @@ exports.createRentRequest = async (req, res) => {
 
 exports.getRentRequests = async (req, res) => {
     try {
-        const rentRequests = await RentRequest.find().populate('userid');
+        const rentRequests = await RentRequest.find({}).populate('userId');
         res.json(rentRequests);
     } catch (error) {
         console.error('Error retrieving rent requests:', error);

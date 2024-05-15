@@ -21,6 +21,7 @@ module.exports = router.post('/signin', async(req, res)=>{
                 const isSame = await bcrypt.compare(password, userSignin.password); 
 
                 token = await userSignin.generateAuthToken();
+                console.log("Token: ", token)
 
                 res.cookie("jwtoken", token, {
                     expires: new Date(Date.now() + 25892000000),
